@@ -19,6 +19,24 @@ current_dir = Path(__file__).parent
 app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
           "static")), name="static")
 
+# Utility function
+def promedio(numeros: list[float]) -> float:
+    """
+    Calcula el promedio de una lista de números.
+
+    Args:
+        numeros: lista de valores numéricos (int o float).
+
+    Returns:
+        El promedio (float).
+
+    Raises:
+        ValueError: si la lista está vacía.
+    """
+    if not numeros:
+        raise ValueError("No se puede calcular el promedio de una lista vacía.")
+    return sum(numeros) / len(numeros)
+
 # In-memory activity database
 activities = {
     "Chess Club": {
